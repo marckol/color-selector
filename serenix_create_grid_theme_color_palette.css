@@ -1,0 +1,193 @@
+.SereniX-color-selector.theme-grid {
+	border: solid 1px #c5c5c5;
+	padding: 3px;
+	width: 204px;
+	border-radius: 5px;
+}
+
+.SereniX-color-selector.theme-grid.no-border {
+	border-width: 0px;
+}
+.SereniX-color-selector.theme-grid td {
+  font-size: 1px;
+  border: solid 1px #c0c0c0;
+  padding: 7px;
+  cursor: pointer;
+}
+.SereniX-color-selector.theme-grid tr.top > td {
+  border-bottom: 0;
+}
+.SereniX-color-selector.theme-grid tr.in > td {
+  border-top: 0;
+  border-bottom: 0;
+}
+.SereniX-color-selector.theme-grid tr.bottom > td {
+  border-top: 0;
+}
+.SereniX-color-selector.theme-grid div.sep {
+  height: 3px;
+}
+.SereniX-color-selector.theme-grid,
+.SereniX-color-selector.theme-grid-ie {
+  border-collapse: separate;
+  border-spacing: 4px 0px;
+  *border-collapse: expression("separate", cellSpacing= "2px");
+}
+.SereniX-color-selector.theme-grid th,
+.SereniX-color-selector.theme-grid-ie th {
+  border: 0;
+  padding: 5px 3px;
+  text-align: left;
+  font-weight: normal;
+  background: transparent !important;
+}
+.SereniX-color-selector.theme-grid-ie td {
+  font-size: 1px;
+  border: solid 1px #c0c0c0;
+  padding: 7px;
+  cursor: pointer;
+}
+
+/*.SereniX-color-selector.theme-grid .more-tabs,
+.SereniX-color-selector.theme-grid-ie .more-tabs {
+  padding: 4px 5px 4px;
+  font-size: smaller;
+}*/
+
+.SereniX-color-selector.theme-grid .more-tabs .main,
+.SereniX-color-selector.theme-grid-ie .more-tabs .main {
+	width: 204px;
+	height:140px;
+	margin: 0;
+	padding: 0;
+	border-width: 0px;
+}
+
+.SereniX-color-selector.theme-grid .inner-title,
+.SereniX-color-selector.theme-grid-ie .more-tabs .inner-title {
+	height:26px;
+}
+
+.SereniX-color-selector.theme-grid .color-index,
+.SereniX-color-selector.theme-grid .color-index-ie,
+.SereniX-color-selector.theme-grid .color-index-ff,
+.SereniX-color-selector.theme-grid .color-value,
+.SereniX-color-selector.theme-grid .color-value-ie,
+.SereniX-color-selector.theme-grid .color-value-ff {
+  border: solid 1px #c3c3c3;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  /*float: right;*/
+}
+.SereniX-color-selector.theme-grid .color-index-ie {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: -23px;
+}
+.SereniX-color-selector.theme-grid .color-value-ie {
+  font-size: 8px;
+  padding: 3px 9px !important;
+}
+.SereniX-color-selector.theme-grid .color-label {
+	height: 20px;
+	width: 60px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.SereniX-color-selector.theme-grid .color-label.right {
+	margin-left: 5px;
+}
+
+.SereniX-color-selector.theme-grid .color-label.left {
+	margin-right: 5px;
+}
+
+.SereniX-color-selector.theme-grid .color-value-wraper {
+	margin-top:5px;
+	height: 20px;
+	width: 90px;
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 4px;
+	padding-right: 3px;
+}
+
+.SereniX-color-selector.theme-grid table {
+	border-spacing: 4px 0px;
+}
+
+.SereniX-color-selector.theme-grid .color-pane {
+	/*margin-bottom: 10px;*/
+	height: 24px;
+}
+
+.SereniX-color-selector .more-tabs {
+	padding: 4px 5px 4px;
+	font-size: smaller;
+}
+.SereniX-color-selector .more-tab {
+	margin-left: 6px;
+	color:navy;
+}
+
+.SereniX-color-selector .more-tab:first-child {
+	margin-left: 0px;
+}
+
+.SereniX-color-selector .more-tab:hover {
+	cursor: pointer;
+	color:blue;
+}
+
+
+.SereniX-color-transparent-bg {
+  background-image: repeating-linear-gradient(
+    135deg,
+    black,
+    black 1px,
+    white 1px,
+    white 3px
+  );
+}
+
+.SereniX-color-transparent {
+  background-image: repeating-linear-gradient(
+    135deg,
+    black,
+    black 1px,
+    white 1px,
+    white 3px
+  );
+  height: 20px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+  border-radius: 5px;
+  margin-left: 4px;
+  margin-right: 4px;
+  font-weight: bold;
+  border: 1px solid transparent;
+}
+
+.SereniX-color-transparent:hover {
+	/*border: 1px solid lightgray;*/
+	border: 2px solid rgb(0,176,240);
+	height: 18px;
+	cursor: pointer;
+}
+.SereniX-color-transparent-box {
+  cursor: pointer;
+  border: solid 1px #c0c0c0;
+  padding: 3px;
+  width: 7px;
+  height: 7px;
+  float: right;
+  position: relative;
+  right: -3px;
+  top: 2px;
+}

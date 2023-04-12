@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SereniX Gradient color palette</title>
+
+  <!-- Import stylesheet -->
+  <link rel="stylesheet" href="./serenix_gradient_color_selector.css">
+  <link rel="stylesheet" href="./serenix_color_selector_history.css">
+
+  <style>
+    #cs01 {
+      width: 512px;
+      height: 512px;
+    }
+
+    #cs02 {
+      width: 256px;
+      height: 256px;
+    }
+
+    #cs03 {
+      width: 128px;
+      height: 128px;
+    }
+	
+	.SereniX-color-palette,
+	.SereniX-color-selector {
+		max-width: 512px;
+	}
+  </style>
+  
+  <script src="../core/serenix_basic_es6_array_functions.js"></script>
+  
+  <script src="./serenix_ui_basic_functions.js"></script>
+  
+  <!-- Import script -->
+  <script src="./serenix_create_gradient_color_palette.js"></script>
+  
+  <script src="../color/serenix_color_utils.js"></script>
+  
+  <script src="../core/serenix_color_utils.js"></script>
+  <script src="../color/serenix_css_color_utils.js"></script>
+</head>
+
+<body>
+  <div id="cs01"></div>
+  <div id="cs02"></div>
+  <div id="cs03"></div>
+  <div>
+	  <div id="cs04-wrapper"></div>
+	  <div id="cs05-wrapper"></div>
+  </div>
+
+  
+
+  <script>
+    var selectors = [
+      createGradientColorPalette({
+        dom: document.getElementById('cs01'),
+        value: '#0F0'
+      }),
+      createGradientColorPalette({
+        element: document.getElementById('cs02'),
+        value: { r: 0, g: 0, b: 255 }
+      }),
+      createGradientColorPalette({
+        el: 'cs03'
+      }),
+	  createGradientColorPalette({ value: '66ff00', appendTo: 'cs04-wrapper'}),
+	  createGradientColorPalette({ value: 'yellow', appendTo: 'cs04-wrapper'}),
+	  //requires ../color/serenix_color_utils.js
+	  createGradientColorPalette({ value: 'pink', appendTo: 'cs05-wrapper'})
+    ];
+    selectors.forEach(function(cs) {
+      cs.addEventListener('change', event => {
+        selectors.forEach(function(s) {
+          if (cs !== s) s.value = cs.value
+        });
+      });
+    });
+
+    // You can get value from selector object in many modes. Allowed mode values are "hex", "rgb", "hsb" or just hex color
+    //
+    var cs =
+      createGradientColorPalette({ value: '#ABC' }).selector; // Same as "#AABBCC"
+    var hex = cs.getValue('hex') // "AABBCC"
+    var rgb = cs.getValue('rgb') // {r: 170, g: 187, b: 204}
+    var hsb = cs.getValue('hsb') // {h: 210, s: 0.16666666666666663, b: 0.8}
+    var value = cs.getValue('value') // Same as cs.value
+  </script>
+</body>
+
+</html>

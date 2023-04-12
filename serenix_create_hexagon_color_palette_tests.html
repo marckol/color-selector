@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SereniX Hexagon colors palette</title>
+
+  <!-- Import stylesheet -->  
+  <link rel="stylesheet" href="./serenix_create_grid_theme_color_palette.css">
+  <link rel="stylesheet" href="./serenix_color_selector_history.css">
+
+  <style>
+	
+	.SereniX-color-palette,
+	.SereniX-color-selector {
+		max-width: 512px;
+		border: 1px solid #c5c5c5;
+		padding: 5px;
+		width: 204px;
+		border-radius: 5px;
+	}
+	
+	.SereniX-color-palette.hexagon .color-palette-hcentered,
+	.SereniX-color-selector.hexagon .core-palette-hcentered,
+	.SereniX-color-palette.hexagon .color-palette-hcentered>div,
+	.SereniX-color-selector.hexagon .core-palette-hcentered>div,
+	div.hexagon-row {
+		text-align: center;
+		margin-left:auto; 
+		margin-right:auto;
+	}
+	.SereniX-color-palette.hexagon .color-palette-hcentered>div>table,
+	.SereniX-color-selector.hexagon .core-palette-hcentered>div>table,
+	.SereniX-color-palette.hexagon .color-palette-hcentered>table,
+	.SereniX-color-selector.hexagon .color-palette-hcentered>table,
+	div.hexagon-row>table {
+	    margin:0 auto; 
+		border-collapse: collapse;
+	}
+	
+	.SereniX-color-selector.hexagon td,
+	.SereniX-color-selector-ie.hexagon td,
+	.SereniX-color-palette.hexagon td,
+	.SereniX-color-palette-ie.hexagon td{
+	  font-size: 1px;
+	  cursor: pointer;
+	}
+	.SereniX-color-selector.hexagon td,
+	.SereniX-color-palette.hexagon td {
+	  padding: 6px 7px;
+	}
+	.SereniX-color-selector-ie.hexagon td,
+	.SereniX-color-palette-ie.hexagon td{
+	  padding: 5px;
+	}
+	
+	.SereniX-color-selector.hexagon .horizontal-separator,
+	.SereniX-color-palette.hexagon .horizontal-separator{
+	    height: 10px;
+        font-size: 0;
+		margin: 0px;
+		padding: 0px;
+		border-width: 0px;
+	}
+	
+	.SereniX-color-selector.hexagon .color-index,
+	.SereniX-color-selector.hexagon .color-index-ie,
+	.SereniX-color-selector.hexagon .color-index-ff,
+	.SereniX-color-selector.hexagon .color-value,
+	.SereniX-color-selector.hexagon .color-value-ie,
+	.SereniX-color-selector.hexagon .color-value-ff {
+	  border: solid 1px #c3c3c3;
+	  width: 18px;
+	  height: 18px;
+	  display: inline-block;
+	  vertical-align: middle;
+	  /*float: right;*/
+	}
+	.SereniX-color-selector.hexagon .color-index-ie {
+	  width: 20px;
+	  height: 20px;
+	  position: relative;
+	  top: -23px;
+	}
+	.SereniX-color-selector.hexagon .color-value-ie {
+	  font-size: 8px;
+	  padding: 3px 9px !important;
+	}
+	.SereniX-color-selector.hexagon .color-label {
+		height: 20px;
+		width: 60px;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 5px;
+	}
+
+	.SereniX-color-selector.hexagon .color-label.right {
+		margin-left: 5px;
+	}
+
+	.SereniX-color-selector.hexagon .color-label.left {
+		margin-right: 5px;
+	}
+
+	.SereniX-color-selector.hexagon .color-value-wraper {
+		margin-top:5px;
+		height: 20px;
+		width: 90px;
+		display: inline-block;
+		vertical-align: middle;
+		padding-left: 4px;
+		padding-right: 3px;
+	}
+	
+	#vertical-palettes-container, #block01 {
+		/*style: display:inline-block;*/
+		vertical-align: middle;
+		padding: 5px;
+	}
+	.vertical-palettes {
+		display:inline-block;
+		vertical-align: middle;
+	}
+	.vertical-palettes>div,
+	#block01>div {
+		margin-top: 10px;
+	}
+	.vertical-palettes>div:first-child,
+	#block01>div:first-child {
+		margin-top: 0px;
+	}
+  </style>
+  
+  
+  <script src="../core/serenix.js"></script>
+  
+  <script src="../css/serenix_css_base.js"></script>
+  
+  <script src="../core/serenix_basic_es6_array_functions.js"></script>
+  
+  <script src="./serenix_ui_basic_functions.js"></script>
+  
+  <!-- Import script -->
+  
+  <script src="./serenix_color_palette_base.js"></script>
+  
+  <script src="./serenix_create_hexagon_color_palette.js"></script>
+  
+  <script src="../color/serenix_color_utils.js"></script>
+  
+  <script src="../core/serenix_color_utils.js"></script>
+  <script src="../color/serenix_css_color_utils.js"></script>
+</head>
+
+<body>
+  <div id="block01">
+	  <div id="md-cs01"></div>
+	  <div id="md-cs02"></div>
+	  <div id="md-cs03"></div>
+  </div>
+  <div id="vertical-palettes-container">
+	  <div id="md-cs04-wrapper" class="vertical-palettes"></div>
+	  <div id="md-cs05-wrapper" class="vertical-palettes"></div>
+  </div>
+  <div><div id="table-wrapper"></div></div>
+
+  
+
+  <script>
+    var selectors = [
+      createHexagonColorPalette({
+        dom: document.getElementById('md-cs01'), //can use the properties element instead of dom
+        value: '#f79646'
+      }),
+      createHexagonColorPalette({
+        id: 'md-cs02',
+        value: { r: 84, g: 141, b: 212 } //#548dd4
+      }),
+      createHexagonColorPalette({
+        el: 'md-cs03'
+      }),
+	  createHexagonColorPalette({ color: '00b0f0', appendTo: 'md-cs04-wrapper', history: true}),
+	  
+	  createHexagonColorPalette({ value: 'yellow', parentEl: 'md-cs05-wrapper', history: [ 'green', 'red' ]}),
+	  
+	  createHexagonColorPalette({ value: '#7030a0', container: 'md-cs04-wrapper'}),
+	  
+	  createHexagonColorPalette({ value: 'magenta', container: 'md-cs05-wrapper'}),
+	  
+	  createHexagonColorPalette({ transparentColor: true, showTransparentText: true}),
+	  
+	  createHexagonColorPalette({}),
+	  
+	  createHexagonColorPalette(),
+	  
+	  createHexagonColorPalette({ transparentColor: true, history: true, showTransparentText: false})
+    ];
+    
+	
+	function toStr(color) {   
+		var fields = ['r', 'g', 'h', 's', 'l', 'v', 'w', 'b'];
+		var x;
+		var s = [];
+		if (isPlainObj(color)) {
+			fields.forEach(function(f) {
+				x = color[f];
+				if (x !== undefined) {
+					s.push(x);
+				}
+			})
+			return '{' + s.join(', ') + '}';
+		} else if (isArray(color)) {
+			return '[' + s.join(', ') + ']';
+		}
+		return color;
+	}
+	
+	var tbl = document.createElement('table'), tr, td, count = 0;
+	document.getElementById('table-wrapper').appendChild(tbl);
+	for (var i = selectors.length - 4; i < selectors.length; i++) {
+		if (count % 2 === 0) {
+			tr = document.createElement('tr');
+			tbl.appendChild(tr);
+		}
+		td = document.createElement('td');
+		td.appendChild(selectors[i]);
+		tr.appendChild(td);
+		count++;
+	}
+
+    // You can get value from selector object in many modes. Allowed mode values are "hex", "rgb", "hsb" or just hex color
+    //
+	
+	console.log('Color selector identified by "md-cs01"');
+    var cs = selectors[0].selector;
+    console.log('hex = ' + toStr(cs.getValue('hex'))) // "Hexadecimal string value (without '#')"
+    console.log('rgb = ' + toStr(cs.getValue('rgb'))) // {r: 170, g: 187, b: 204}
+    console.log('hsb = ' + toStr(cs.getValue('hsb'))) // {h: 210, s: 0.16666666666666663, b: 0.8}
+    console.log('value = ' + toStr(cs.getValue('value'))) // Same as cs.value
+	
+	console.log('Color selector identified by "md-cs02"');
+	cs = selectors[1].selector;
+    console.log('hex = ' + toStr(cs.getValue('hex'))) // "AABBCC"
+    console.log('rgb = ' + toStr(cs.getValue('rgb'))) // {r: 170, g: 187, b: 204}
+    console.log('hsb = ' + toStr(cs.getValue('hsb'))) // {h: 210, s: 0.16666666666666663, b: 0.8}
+    console.log('value = ' + toStr(cs.getValue('value'))) // Same as cs.value
+  </script>
+</body>
+
+</html>

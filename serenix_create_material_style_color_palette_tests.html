@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SereniX Matrial Like colors palette</title>
+
+  <!-- Import stylesheet -->  
+  <link rel="stylesheet" href="./serenix_create_material_style_color_palette.css">
+  <link rel="stylesheet" href="./serenix_color_selector_history.css">
+
+  <style>
+	
+	#vertical-palettes-container, #block01 {
+		/*style: display:inline-block;*/
+		vertical-align: middle;
+		padding: 5px;
+	}
+	.vertical-palettes {
+		display:inline-block;
+		vertical-align: middle;
+	}
+	.vertical-palettes>div,
+	#block01>div {
+		margin-top: 10px;
+	}
+	.vertical-palettes>div:first-child,
+	#block01>div:first-child {
+		margin-top: 0px;
+	}
+  </style>
+  
+  
+  <script src="../core/serenix.js"></script>
+  
+  <script src="../css/serenix_css_base.js"></script>
+  
+  <script src="../core/serenix_basic_es6_array_functions.js"></script>
+  
+  <script src="./serenix_ui_basic_functions.js"></script>
+  
+  <!-- Import script -->
+  
+  <script src="./serenix_color_palette_base.js"></script>
+  
+  <script src="./serenix_create_material_style_color_palette.js"></script>
+  
+  <script src="./serenix_material_palette.js"></script>
+  
+  <script src="./serenix_material_palette_accent.js"></script>
+  
+  <script src="./serenix_md_base_colors.js"></script>
+  
+  <script src="../color/serenix_color_utils.js"></script>
+  
+  <script src="../core/serenix_color_utils.js"></script>
+  <script src="../color/serenix_css_color_utils.js"></script>
+</head>
+
+<body>
+  <div id="block01">
+	  <div id="md-cs01"></div>
+	  <div id="md-cs02"></div>
+	  <div id="md-cs03"></div>
+  </div>
+  <div id="vertical-palettes-container">
+	  <div id="md-cs04-wrapper" class="vertical-palettes"></div>
+	  <div id="md-cs05-wrapper" class="vertical-palettes"></div>
+  </div>
+  <div><div id="table-wrapper"></div></div>
+
+  
+
+  <script>
+    var selectors = [
+      createMDStyleColorPalette({
+        dom: document.getElementById('md-cs01'), //can use the properties element instead of dom
+        //value: '#f79646',
+		value: '#eeff41',
+		palette: 'material-full'
+      }),
+      createMDStyleColorPalette({
+        id: 'md-cs02',
+        //value: { r: 84, g: 141, b: 212 }, //#548dd4
+		value: { r: 240, g: 98, b: 146 }, //#f06292
+		palette: 'material'
+      }),
+      createMDStyleColorPalette({
+        el: 'md-cs03',
+		palette: 'material-accent'
+      }),
+	  createMDStyleColorPalette({
+		color: '000000',
+		appendTo: 'md-cs04-wrapper',
+		history: true,
+		showDisplaysWhenHistory: true
+	  }),
+	  
+	  createMDStyleColorPalette({ value: 'white', parentEl: 'md-cs05-wrapper', history: [ '#f06292', 'red', '#4527a0' ], historyLayout: 'collapsible' }),
+	  
+	  createMDStyleColorPalette({ colorsPerRow: 4, value: 'FF5722', container: 'md-cs04-wrapper'}),
+	  
+	  createMDStyleColorPalette({ value: 'magenta', container: 'md-cs05-wrapper'}),
+	  
+	  createMDStyleColorPalette({ value: '#7030a0', transparentColor: true, showTransparentText: true, historyLayout: 'grid'}),
+	  
+	  createMDStyleColorPalette({}),
+	  
+	  createMDStyleColorPalette(),
+	  
+	  createMDStyleColorPalette({ value: '#4527a0', transparentColor: true, history: ['#64b5f6', '#039be5', '#4527a0', 'red', '#f06292', '#b0bec5', '#fff8e1', '#212121', '#ff7043', 'black', '#fffde7', '#64b5f6', '#3e2723'], showTransparentText: false})
+    ];
+    
+	
+	function toStr(color) {   
+		var fields = ['r', 'g', 'h', 's', 'l', 'v', 'w', 'b'];
+		var x;
+		var s = [];
+		if (isPlainObj(color)) {
+			fields.forEach(function(f) {
+				x = color[f];
+				if (x !== undefined) {
+					s.push(x);
+				}
+			})
+			return '{' + s.join(', ') + '}';
+		} else if (isArray(color)) {
+			return '[' + s.join(', ') + ']';
+		}
+		return color;
+	}
+	
+	var tbl = document.createElement('table'), tr, td, count = 0;
+	document.getElementById('table-wrapper').appendChild(tbl);
+	for (var i = selectors.length - 4; i < selectors.length; i++) {
+		if (count % 2 === 0) {
+			tr = document.createElement('tr');
+			tbl.appendChild(tr);
+		}
+		td = document.createElement('td');
+		td.appendChild(selectors[i]);
+		tr.appendChild(td);
+		count++;
+	}
+
+    // You can get value from selector object in many modes. Allowed mode values are "hex", "rgb", "hsb" or just hex color
+    //
+	
+	console.log('Color selector identified by "md-cs01"');
+    var cs = selectors[0].selector;
+    console.log('hex = ' + toStr(cs.getValue('hex'))) // "Hexadecimal string value (without '#')"
+    console.log('rgb = ' + toStr(cs.getValue('rgb'))) // {r: 170, g: 187, b: 204}
+    console.log('hsb = ' + toStr(cs.getValue('hsb'))) // {h: 210, s: 0.16666666666666663, b: 0.8}
+    console.log('value = ' + toStr(cs.getValue('value'))) // Same as cs.value
+	
+	console.log('Color selector identified by "md-cs02"');
+	cs = selectors[1].selector;
+    console.log('hex = ' + toStr(cs.getValue('hex'))) // "AABBCC"
+    console.log('rgb = ' + toStr(cs.getValue('rgb'))) // {r: 170, g: 187, b: 204}
+    console.log('hsb = ' + toStr(cs.getValue('hsb'))) // {h: 210, s: 0.16666666666666663, b: 0.8}
+    console.log('value = ' + toStr(cs.getValue('value'))) // Same as cs.value
+  </script>
+</body>
+
+</html>

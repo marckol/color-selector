@@ -1,0 +1,294 @@
+.SereniX-color-palette,
+.SereniX-color-selector {
+	max-width: 512px;
+}
+.SereniX-color-palette.md-like,
+.SereniX-color-selector.md-like,
+.SereniX-color-palette.md-like.grey231,
+.SereniX-color-selector.md-like.grey231,
+.SereniX-color-palette.md-like.gray231,
+.SereniX-color-selector.md-like.gray231 {
+	background-color: rgb(231, 231, 231);
+}
+
+.SereniX-color-palette.md-like.gray56,
+.SereniX-color-selector.md-like.gray56,
+.SereniX-color-palette.md-like.grey56,
+.SereniX-color-selector.md-like.grey56 { //microsoft windows calendar background color
+	background-color: rgb(56, 56, 56);
+}
+
+.SereniX-color-palette.md-like .color-cell,
+.SereniX-color-selector.md-like .color-cell,
+.SereniX-color-palette.md-like .arrow-back-cell,
+.SereniX-color-selector.md-like .arrow-back-cell {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	margin: 6px;
+}
+
+.SereniX-color-palette.md-like.cell60 .color-cell,
+.SereniX-color-selector.md-like.cell60 .color-cell,
+.SereniX-color-palette.md-like.cell60 .arrow-back-cell,
+.SereniX-color-selector.md-like.cell60 .arrow-back-cell {
+	width: 60px;
+	height: 60px;
+}
+
+.SereniX-color-palette.md-like.cell80 .color-cell,
+.SereniX-color-selector.md-like.cell80 .color-cell,
+.SereniX-color-palette.md-like.cell80 .arrow-back-cell,
+.SereniX-color-selector.md-like.cell80 .arrow-back-cell {
+	width: 80px;
+	height: 80px;
+}
+
+.SereniX-color-palette.md-like.cell40 .color-cell,
+.SereniX-color-selector.md-like.cell40 .color-cell,
+.SereniX-color-palette.md-like.cell40 .arrow-back-cell,
+.SereniX-color-selector.md-like.cell40 .arrow-back-cell {
+	width: 40px;
+	height: 40px;
+}
+
+
+.SereniX-color-palette.md-like .main-colors,
+.SereniX-color-palette.md-like .sub-colors {
+    margin: 0;
+    padding: 0;
+}
+
+.SereniX-color-palette.md-like .main-colors,
+.SereniX-color-palette.md-like .main-colors *,
+.SereniX-color-palette.md-like .sub-colors,
+.SereniX-color-palette.md-like .sub-colors *  {
+    box-sizing: content-box;
+    text-align: left;
+    line-height: 1;
+    font-size: 0;
+  }
+  
+
+
+  .color-cell, .arrow-back-cell {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    tap-highlight-color: transparent;
+    user-select: none;
+    outline-style: none;
+    cursor: pointer;
+  }
+
+  .color-cell {
+    display: inline-block;
+    border-radius: 100%;
+    position: relative;
+  }
+
+.outer-circle {
+    position: absolute;
+    border: 4px solid rgba(0, 0, 0, 0.0);
+    border-radius: 100%;
+    margin: 0;
+    transition: all 0.45s;
+}
+
+.inner-circle {
+    position: absolute;
+    border: 4px solid rgba(0, 0, 0, 0.0);
+    border-radius: 100%;
+    margin: 7px;
+    transition: all 0.45s;
+}
+
+.color-current-cell-content .inner-circle {
+    border: 4px solid rgba(255, 255, 255, 1);
+    transition: all 1s;
+}
+
+.color-current-cell-content .outer-circle {
+    border: 4px solid rgba(0, 0, 0, 0.17);
+    transition: all 1s;
+}
+
+
+.light-color .color-current-cell-content .inner-circle {
+    border-color: #000;
+    transition: all 1s;
+}
+
+.light-color .color-current-cell-content .outer-circle {
+    /*border-color: #555555;*/
+	border-color: #c5c5c5;
+    transition: all 1s;
+}
+  
+.cell100 .color-current-cell-content>.outer-circle {
+	width: 92px;
+	height: 92px;
+}
+
+.color-current-cell-content {
+	display: relative;
+}
+
+.cell100 .color-current-cell-content>.inner-circle {
+	width: 74px;
+	height: 74px;
+}
+
+.cell56 .color-current-cell-content>.outer-circle,
+.color-cell>.color-current-cell-content>.outer-circle {
+	width: 48px;
+	height: 48px;
+}
+
+.cell56 .color-current-cell-content>.inner-circle,
+.color-cell>.color-current-cell-content>.inner-circle {
+	width: 34px;
+	height: 34px;
+}
+
+
+.cell60 .color-current-cell-content>.outer-circle {
+	width: 52px;
+	height: 52px;
+}
+
+.cell60 .color-current-cell-content>.inner-circle {
+	width: 38px;
+	height: 38px;
+}
+  
+.arrow-back-cell {
+    display: inline-block;
+    text-align: center;
+    float: left;
+    border-radius: 100%;
+    position: relative;
+}
+
+.arrow-back-cell:hover {
+    background: rgba(0, 0, 0, 0.19);
+}
+  
+  
+  
+.SereniX-color-selector .more-tabs {
+	padding: 4px 5px 4px;
+	font-size: smaller;
+}
+.SereniX-color-selector .more-tab {
+	margin-left: 6px;
+	color:navy;
+}
+
+.SereniX-color-selector .more-tab:first-child {
+	margin-left: 0px;
+}
+
+.SereniX-color-selector .more-tab:hover {
+	cursor: pointer;
+	color:blue;
+}
+
+
+.SereniX-color-transparent-bg {
+  background-image: repeating-linear-gradient(
+    135deg,
+    black,
+    black 1px,
+    white 1px,
+    white 3px
+  );
+}
+
+.SereniX-color-transparent {
+  background-image: repeating-linear-gradient(
+    135deg,
+    black,
+    black 1px,
+    white 1px,
+    white 3px
+  );
+  height: 20px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+  border-radius: 5px;
+  margin-left: 4px;
+  margin-right: 4px;
+  font-weight: bold;
+  border: 1px solid transparent;
+}
+
+.SereniX-color-transparent:hover {
+	/*border: 1px solid lightgray;*/
+	border: 2px solid rgb(0,176,240);
+	height: 18px;
+	cursor: pointer;
+}
+.SereniX-color-transparent-box {
+  cursor: pointer;
+  border: solid 1px #c0c0c0;
+  padding: 3px;
+  width: 7px;
+  height: 7px;
+  float: right;
+  position: relative;
+  right: -3px;
+  top: 2px;
+}
+
+.SereniX-color-selector.md-like .color-index,
+.SereniX-color-selector.md-like .color-index-ie,
+.SereniX-color-selector.md-like .color-index-ff,
+.SereniX-color-selector.md-like .color-value,
+.SereniX-color-selector.md-like .color-value-ie,
+.SereniX-color-selector.md-like .color-value-ff {
+  border: solid 1px #c3c3c3;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  /*float: right;*/
+}
+.SereniX-color-selector.md-like .color-index-ie {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: -23px;
+}
+.SereniX-color-selector.md-like .color-value-ie {
+  font-size: 8px;
+  padding: 3px 9px !important;
+}
+.SereniX-color-selector.md-like .color-label {
+	height: 20px;
+	width: 60px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.SereniX-color-selector.md-like .color-label.right {
+	margin-left: 5px;
+}
+
+.SereniX-color-selector.md-like .color-label.left {
+	margin-right: 5px;
+}
+
+.SereniX-color-selector.md-like .color-value-wraper {
+	margin-top:5px;
+	height: 20px;
+	width: 90px;
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 4px;
+	padding-right: 3px;
+}

@@ -1,0 +1,176 @@
+/*Adapted from https://github.com/iamapig120/simple-color-picker/blob/master/color-picker.css  */
+
+.SereniX-gradient-color-selector,
+.SereniX-gradient-color-selector *,
+.SereniX-gradient-color-selector *::before,
+.SereniX-gradient-color-selector *::after {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  box-sizing: border-box;
+}
+.SereniX-gradient-color-selector {
+  background-color: #fff;
+  display: block;
+  min-width: 128px;
+  min-height: 128px;
+  position: relative;
+}
+.SereniX-gradient-color-selector > .color-selector-right-bar {
+  border: solid #000000 1px;
+  background: linear-gradient(
+    #ff0000,
+    #ff00ff,
+    #0000ff,
+    #00ffff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  width: 16px;
+  height: calc(100% - 46px);
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+.SereniX-gradient-color-selector .color-selector-right-bar-selector {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+}
+.SereniX-gradient-color-selector .color-selector-right-bar-selector::before,
+.SereniX-gradient-color-selector .color-selector-right-bar-selector::after {
+  content: '';
+  width: 10px;
+  height: 7px;
+  position: absolute;
+  background: transparent;
+  border: solid transparent 5px;
+  border-width: 3.5px 5px;
+  top: -3px;
+}
+.SereniX-gradient-color-selector .color-selector-right-bar-selector::before {
+  border-left: solid #404040 5px;
+  left: -6px;
+}
+.SereniX-gradient-color-selector .color-selector-right-bar-selector::after {
+  border-right: solid #404040 5px;
+  right: -6px;
+}
+.SereniX-gradient-color-selector > .color-selector-gradients {
+  position: absolute;
+  width: calc(100% - 50px);
+  height: calc(100% - 46px);
+  border: solid #000000 1px;
+  left: 12px;
+  top: 12px;
+}
+.SereniX-gradient-color-selector > .color-selector-gradients,
+.SereniX-gradient-color-selector > .color-selector-gradients * {
+  cursor: url('./serenix_gradient_color_selector_cursor.cur'), crosshair;
+}
+.SereniX-gradient-color-selector > .color-selector-gradient-black {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.SereniX-gradient-color-selector > .color-selector-color-block.color-pane {
+  position: absolute;
+  /*border: solid #000000 1px;*/
+  /*background: #fff;*/
+  width: calc(100% - 104px);
+  max-width: 72px;
+  height: 20px;
+  left: 12px;
+  bottom: 8px;
+}
+
+.SereniX-gradient-color-selector > .color-selector-color-block.color-value,
+.SereniX-gradient-color-selector > .color-selector-color-block.color-index,
+.SereniX-gradient-color-selector > .color-selector-color-block.color-pane>.color-value,
+.SereniX-gradient-color-selector > .color-selector-color-block.color-pane>.color-index {
+  border: solid #000000 1px;
+  background: #fff;
+  width: calc(100% - 104px);
+  max-width: 72px;
+  height: 18px;
+}
+
+.SereniX-gradient-color-selector > .color-selector-color-block.color-value,
+.SereniX-gradient-color-selector > .color-selector-color-block.color-index {
+  position: absolute;
+  left: 12px;
+  bottom: 8px;
+  max-width: 72px;
+  width: calc(100% - 104px);
+}
+
+.SereniX-gradient-color-selector > .color-selector-color-block.color-pane>.color-value,
+.SereniX-gradient-color-selector > .color-selector-color-block.color-pane>.color-index {
+	display: inline-block;
+	width: calc((100% - 4px - 5px)/2);
+	margin-left:5px;
+}
+
+.SereniX-gradient-color-selector > .color-selector-color-block.color-pane>.color-value:first-child,
+.SereniX-gradient-color-selector > .color-selector-color-block.color-pane>.color-index:first-child {
+	margin:0px;
+}
+
+
+
+.SereniX-gradient-color-selector > .color-selector-input {
+  position: absolute;
+  width: 56px;
+  border: solid #909090 1px;
+  text-align: left;
+  height: 18px;
+  bottom: 8px;
+  right: 12px;
+}
+.SereniX-gradient-color-selector > .color-selector-input > input {
+  padding: 0 4px;
+  text-align: center;
+}
+.SereniX-gradient-color-selector > .color-selector-input * {
+  font-size: 12px;
+  color: #808080;
+  line-height: 18px;
+}
+.SereniX-gradient-color-selector > .color-selector-input::before {
+  width: 16px;
+  height: 18px;
+  display: block;
+  position: absolute;
+  border: solid #909090 1px;
+  border-right: 0;
+  content: '#';
+  text-align: center;
+  font-size: 12px;
+  color: #808080;
+  line-height: 18px;
+  top: -1px;
+  left: -16px;
+}
+.SereniX-gradient-color-selector .color-selector-circle {
+  background-color: transparent;
+  position: absolute;
+}
+.SereniX-gradient-color-selector .color-selector-circle::before {
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+  border: solid #000000 1px;
+  background-color: transparent;
+  position: relative;
+  left: -6px;
+  top: -6px;
+  display: block;
+  content: '';
+}
+.SereniX-gradient-color-selector .color-selector-circle.color-selector-circle-black::before {
+  border-color: #000000;
+}
+.SereniX-gradient-color-selector .color-selector-circle.color-selector-circle-white::before {
+  border-color: #ffffff;
+}

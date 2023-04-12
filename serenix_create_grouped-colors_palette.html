@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SereniX Grouped Colors palette</title>
+
+  <!-- Import stylesheet -->  
+  <link rel="stylesheet" href="./serenix_create_grouped-colors_palette.css">
+  <link rel="stylesheet" href="./serenix_color_selector_history.css">
+
+  <style>	
+	.SereniX-color-palette,
+	.SereniX-color-selector {
+		max-width: 512px;
+	}
+	.SereniX-color-selector.grouped-grid {
+		margin: 10px;
+	}
+	.example {
+		margin: 15px;
+	}
+	.example h3 {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	.tab {
+		padding: 15px;
+		border: 1px #c5c5c5 solid;
+		font-weight: bold;
+	}
+	.tab:hover {
+		cursor: pointer;
+		/*transform: scale(1.05);*/
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	.inactive-tab {
+		background-color: lightgray;
+		color: black;
+	}
+	
+	.active-tab {
+		background-color: blue;
+		color: white;
+	}
+	
+	.inactive-page {
+		display: none;
+	}
+	
+	.active-page {
+		display: block;
+	}
+	.tabs ul {
+		list-style-type: none;
+	}
+	.tabs ul>li{
+		float: left;
+	}
+	.tabs,
+	.card {
+		display: block;
+	}
+	.tab {
+		height: 20px;
+	}
+	.tabs {
+		height: 50px;
+	}
+	
+	.tabbed-pane {
+		margin: 20px;
+	}
+	
+	.SereniX-vtabbed-pane {
+		display:inline-block;
+		position: relative;   
+		padding:10px;
+	}
+	.SereniX-vtabs-container {
+		display:inline-block;
+		position: relative;
+		width:27px;
+	}
+	.SereniX-vtabs {
+		padding:0px;
+		margin:0px;
+		border:0px;
+	}
+	.SereniX-vtabs>ul {
+		position: absolute;
+		display: block;
+		padding: 0px;
+		list-style-type: none;
+	  }
+
+	  .SereniX-vtabs>ul>li {
+		display: block;
+		overflow: hidden;
+		width: 25px;
+		height:102px;
+		line-height: 25px;
+		border: 1px solid #000;
+		padding: 10px 0;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	  }
+	  
+	  .SereniX-vtab {
+		font-weight: bold;
+	  }
+
+	  .SereniX-vtab.right,
+	  .SereniX-vtabs.right .SereniX-vtab {
+		display: block;
+		transform: translate(0,-100%) rotate(90deg);
+		transform-origin: left bottom;
+		white-space: nowrap;
+	  }
+	  .tabbed-content {
+		  position:relative;
+		  display:inline-block;
+		  vertical-align:top; 
+		  padding:15px;
+		  width:calc(100% - 77px);
+		  min-width: 900px;
+	  }
+  </style>
+  
+  
+  <script src="../core/serenix.js"></script>
+  
+  <script src="../css/serenix_css_base.js"></script>
+  
+  <script src="../core/serenix_basic_es6_array_functions.js"></script>
+  
+  <script src="./serenix_ui_basic_functions.js"></script>
+  
+  <!-- Import script -->
+  
+  
+  <script src="./serenix_md_base_colors.js"></script>
+  
+  <script src="./serenix_color_palette_base.js"></script>
+  
+  <script src="./serenix_create_grouped_colors_palette.js"></script>
+  
+  <script src="../color/serenix_color_utils.js"></script>  
+  <script src="../core/serenix_color_utils.js"></script>
+  <script src="../color/serenix_css_color_utils.js"></script>
+  
+  <script src="./serenix_material_variation_colors.js"></script>
+  <script src="./serenix_tailwind_colors.js"></script>
+  <script src="../color/serrenix_css3_full_colors.js"></script>
+</head>
+
+	<body>
+	    <div></div>
+		<div  id="group1" class="example" data-title="Vertical themes"></div>
+		<div  id="group2" class="example" data-title="Lists and grids">
+			<h2>Sub palettes lists and grids cases</h2>
+			<div id="group2-a" class="sub-case">
+				<h3>Lists</h3>
+				<div>
+					<p>Two possibilities for list color selector:</p>
+					<ul>
+					  <li>Colors are layout from top to bottom. This is exactly how single-column list works.</li>
+					  <li>When multi-column lists, colors are layout column after column and for each column is layout from top to bottom.</li>
+					</ul>
+					<p>For the examples of list use case below, we have multi-column lists with three (3) columns.</p>
+				</div><br>
+			</div>
+			<div id="group2-b" class="sub-case">
+				<h3>Grids</h3>
+				<div>
+					<p>Colors are layout row after row and for each row from left to right in normal mode (right to left mode not yet supported).</p>
+					<p></p>
+				</div>
+			</div>
+		</div>
+		<div id="bars" class="example" data-title="Bars">
+			<div id="bars-a" class="sub-case">
+			<h3>Horizontal bars</h3>
+			</div>
+			<div id="bars-b" class="sub-case">
+			<h3>Vertical bars</h3>
+			</div>
+		</div>
+		<div id="row-groups" class="example" data-title="Row groups">
+		    <h2>Colors grouped with group name on top</h2>
+			<div id="row-groups-a" class="sub-case">
+				<h3>Row group grids</h3>
+				<div>
+				<p>Below are color selectors:</p>
+				<ul>
+				<li>colors grouped with no columns specification. That gives group on top and one row of colors for each group</li>
+				<li>colors grouped with five (5) columns. That gives group on top and two rows of 5 colors for each group</li>
+				</ul>
+				</div>
+			</div>
+			<div id="row-groups-b" class="sub-case">
+				<h3>Columns</h3>
+				<div>
+				    <p>The following color selectors are grouped on top. The second use case has two levels groups</p>
+					<ul>
+					<li>All the two use cases specify columns for sub-palettes: that gives two rows for each sub-palette</li>
+					<li>The second use case also specifies group columns. That makes columns with nested sub-palettes.</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+		<script>
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: materialVariationColors,
+				mainItemColorIndex: 4,
+				subPaletteLayout: 'list',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				appendTo: "group1",
+				value: 'F44336'
+			});
+		} catch (err) {}
+		try {
+			var cs = createGroupedColorPalette({
+				colors: materialVariationColors,
+				mainItemColorIndex: 4,
+				subPaletteLayout: 'list',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				head: 'Select a color',
+				appendTo: "group1"
+			});
+		} catch (err) {}
+		try {
+			var cs = createGroupedColorPalette({
+				head: 'Choose and pick a color',
+				colors: tailwindColors,
+				mainItemColorIndex: 5,
+				subPaletteLayout: 'list',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				subPaletteColumns: 2,
+				extraColors: [ 'black', 'white', 'transparent' ],
+				container: "group2-a",
+				value: 'D1D5DB'
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				mainItemColorIndex: 4,
+				subPaletteLayout: 'list',
+				mainColorsOrientation: 'horizontal',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				subPaletteColumns: 2,
+				value: '#8E4B10',
+				container: "group2-a"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				mainItemColorIndex: 4,
+				subPaletteLayout: 'grid',
+				mainColorsOrientation: 'horizontal',
+				colorCellClass: 'rectangle',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				subPaletteColumns: 2,
+				container: "group2-b"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				mainItemColorIndex: 5,
+				subPaletteLayout: 'grid',
+				mainColorsOrientation: 'vertical',
+				colorCellClass: 'circle70',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				subPaletteColumns: 3,
+				value: '#0E9F6E',
+				container: "group2-b"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				subPaletteLayout: 'horizontal-bar',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				value: '#0E9F6E',
+				container: "bars-a"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		var outerTabbedPane = {};
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				subPaletteLayout: 'horizontal-bar',
+				namedGroup: false,
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				value: '#0E9F6E',
+				container: "bars-a",
+				allowTransparentColor: true
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				subPaletteLayout: 'vertical-bar',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				value: '#0E9F6E',
+				container: "bars-b"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				subPaletteLayout: 'vertical-bar',
+				namedGroup: false,
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				value: '#BF125D',
+				container: "bars-b"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				subPaletteLayout: 'row-group',
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				value: '#BF125D',
+				parentElement: "row-groups-a"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				subPaletteLayout: 'row-group',
+				subPaletteColumns: 5,
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				value: '#0E9F6E',
+				title: 'Pick a color',
+				parentElement: "row-groups-a"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				subPaletteLayout: 'row-group',
+				subPaletteColumns: 5,
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				value: '#0E9F6E',
+				parentNode: "row-groups-b",
+				allowTransparentColor: true
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		try {
+			var cs = createGroupedColorPalette({
+				colors: tailwindColors,
+				subPaletteLayout: 'row-group',
+				subPaletteColumns: 5,
+				groupColumns: 2,
+				colorNameSystem: MDBaseColors.COLORS_MAP,
+				value: '#0E9F6E',
+				title: 'Choose a color',
+				parentEl: "row-groups-b"
+			});
+		} catch(err) {
+			console.log(err);
+		}
+		
+		var panes = document.querySelectorAll('.example');
+		var tabbedPane = document.createElement('div');
+		var tabs = document.createElement('div');
+		var ul = document.createElement('ul');
+		var li;
+		
+		addCssClass(tabbedPane, 'tabbed-pane');
+		
+		addCssClass(tabs, 'tabs');
+		tabs.appendChild(ul);
+		
+		panes[0].parentElement.insertBefore(tabbedPane, panes[0]);
+		
+		tabbedPane.appendChild(tabs);
+		
+		var card = document.createElement('div');
+		addCssClass(card, 'card');
+		tabbedPane.appendChild(card);
+		
+		function selectTab(ev) {
+			var tp = this.tabbedPane;
+			var currentTab = tp.currentTab;
+			
+			preventDefault(ev||window.event);
+			removeClass(currentTab, 'active-tab');
+			addCssClass(currentTab, 'inactive-tab');
+			removeClass(currentTab.pane, 'active-page');
+			addCssClass(currentTab.pane, 'inactive-page');
+			
+			removeClass(tp.currentTab = this, 'inactive-tab');
+			addCssClass(this, 'active-tab');
+			removeClass(this.pane, 'inactive-page');
+			addCssClass(this.pane, 'active-page');
+		}
+		
+		panes.forEach(function(pane, i) {
+			var tab = document.createElement('div');
+			tab.innerHTML = pane.getAttribute('data-title');
+			addCssClass(tab, 'tab')
+			addEvt('click', tab, selectTab);
+			tab.tabbedPane = outerTabbedPane;
+			li = document.createElement('li');
+			li.appendChild(tab);
+			ul.appendChild(li);
+			card.appendChild(pane);
+			li.pane = tab.pane = pane;
+			addCssClass(pane, i ? 'inactive-page' : 'active-page')
+			addCssClass(tab, i ? 'inactive-tab' : 'active-tab')
+			if (!i)
+				outerTabbedPane.currentTab = tab;
+			var subCases = pane.querySelectorAll(".sub-case");
+			if (subCases.length) {
+				var innerTabbedPane = {};
+				var scard = document.createElement('div');
+				var stabs = document.createElement('div');
+				var tp = document.createElement('div');
+				var vTabsContainer = document.createElement('div');
+				
+				addCssClass(vTabsContainer, 'SereniX-vtabs-container')
+				vTabsContainer.appendChild(stabs);
+				
+				addCssClass(stabs, 'SereniX-vtabs right');
+				addCssClass(scard, 'tabbed-content');
+				addCssClass(tp, 'SereniX-vtabbed-pane');
+				
+				subCases[0].parentElement.insertBefore(tp, subCases[0]);
+				var _ul = document.createElement('ul');
+				addCssClass(_ul, 'vtabs-list');
+				stabs.appendChild(_ul);
+				var _li;
+				subCases.forEach(function(subCase, j) {
+					var stab = document.createElement('li');
+					stab.innerHTML = subCase.children[0].innerHTML;
+					addCssClass(stab, 'SereniX-vtab')
+					
+					_li = document.createElement('li');
+					_li.appendChild(stab);
+					_li.pane = subCase;
+					_li.tabbedPane = innerTabbedPane;
+					addEvt('click', _li, selectTab);
+					scard.appendChild(subCase);
+					_ul.appendChild(_li);
+					addCssClass(subCase, j ? 'inactive-page' : 'active-page')
+					addCssClass(_li, j ? 'inactive-tab' : 'active-tab')
+					if (!j)
+						innerTabbedPane.currentTab = _li;
+				})
+				
+				tp.appendChild(scard);
+				tp.appendChild(vTabsContainer);
+			}
+		})
+
+		</script>
+	</body>
+</html>
